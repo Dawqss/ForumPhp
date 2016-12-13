@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css?family=Abril+Fatface|Space+Mono");
+#logbody, #regbody {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80vh;
+  width: 100vw;
+  text-align: center;
+  background: #2ecc71; }
+  #logbody h1, #regbody h1 {
+    text-transform: Uppercase;
+    font-size: 70px;
+    font-family: 'Abril Fatface';
+    color: #2c3e50; }
+  #logbody #logdiv, #logbody #regdiv, #regbody #logdiv, #regbody #regdiv {
+    margin: 0 auto;
+    max-width: 500px;
+    text-align: center;
+    align-self: center; }
+    #logbody #logdiv form, #logbody #regdiv form, #regbody #logdiv form, #regbody #regdiv form {
+      background: #1abc9c;
+      padding: 30px;
+      border-radius: 15px;
+      border: inset 15px #9b59b6;
+      font-size: 2rem; }
+      #logbody #logdiv form a, #logbody #regdiv form a, #regbody #logdiv form a, #regbody #regdiv form a {
+        text-decoration: none;
+        color: black;
+        margin: 10px 0;
+        border-radius: 10px;
+        padding: 10px;
+        cursor: pointer;
+        border: none;
+        background: #ecf0f1;
+        font-family: 'Space mono';
+        font-size: 1.3rem; }
+      #logbody #logdiv form p, #logbody #regdiv form p, #regbody #logdiv form p, #regbody #regdiv form p {
+        font-family: 'Space mono';
+        padding: 0;
+        margin: 0; }
+        #logbody #logdiv form p input, #logbody #regdiv form p input, #regbody #logdiv form p input, #regbody #regdiv form p input {
+          border-radius: 10px;
+          font-size: 1.5rem;
+          font-family: 'Space mono';
+          border: none;
+          padding: 3px; }
+      #logbody #logdiv form p:last-of-type input, #logbody #regdiv form p:last-of-type input, #regbody #logdiv form p:last-of-type input, #regbody #regdiv form p:last-of-type input {
+        margin: 20px 0;
+        padding: 10px;
+        cursor: pointer;
+        background: #ecf0f1; }
+
+#regbody {
+  height: initial;
+  overflow-x: hidden; }
+  #regbody #regdiv p {
+    font-size: 1.3rem; }
+  #regbody #regdiv form {
+    margin-bottom: 50px; }
+
+#box {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px; }
+
+.g-recaptcha {
+  display: flex;
+  justify-content: center; }
+
+.error {
+  color: red; }
