@@ -97,6 +97,9 @@ footer
 		p
 			text-align: center
 			font-family: Mono space
+		p:last-of-type
+			input
+				cursor: pointer
 		input, select, textarea
 			font-size: 2rem
 			border-radius: 15px
@@ -108,3 +111,37 @@ footer
 			height: 220px
 			resize: none
 			font-size: 1.5rem	
+
+
+#category
+	background: #16a085
+	display: flex
+	flex-direction: column
+	justify-content: center
+	margin: 0 auto
+	min-height: calc(100vh - 135px)
+	h2,h3
+		text-align: center
+	table
+		margin: 20px auto
+		color: white
+		border-collapse: collapse
+		tr
+			th
+				padding: 15px
+				font-size: 1.3rem
+				text-transform: uppercase
+				background: #9b59b6
+				border: 2px solid black
+			td
+				background: #1abc9c
+				padding: 15px
+				border: 2px solid black
+				a
+					color: white
+					text-decoration: none
+					transition: 0.2s
+					&:hover
+						color: black
+				h3
+					text-align: left

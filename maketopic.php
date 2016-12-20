@@ -51,7 +51,7 @@
 					}
 
 				} catch (Exception $e){
-
+					$_SESSION['e'] = $e;
 				}
 			}
 		}
@@ -112,7 +112,7 @@
 							echo '<p>Temat:</p>';
 							echo '<p><input type = "text" name = "topic"></p>';
 								if(isset($_SESSION['e_topic'])){
-									echo '<p style="color: red;">'.$_SESSION['e_topic'].'</p>';
+									echo '<p style="color: red; font-size: 15px;">'.$_SESSION['e_topic'].'</p>';
 									unset($_SESSION['e_topic']);
 								}
 							echo '<p>Kategoria:</p>';
@@ -124,10 +124,14 @@
 							echo '<p>Treść:</p>';
 							echo '<textarea name = "post_content"></textarea>';
 								if(isset($_SESSION['e_post'])){
-									echo '<p style="color: red;">'.$_SESSION['e_post'].'</p>';
+									echo '<p style="color: red; font-size: 15px;">'.$_SESSION['e_post'].'</p>';
 									unset($_SESSION['e_post']);
 								}
 							echo '<p><input type = "submit" value = "stwórz temat"></p>';
+								if(isset($_SESSION['d_topic'])){
+									echo '<p style="color: red; font-size: 15px;">'.$_SESSION['d_topic'].'</p>';
+									unset($_SESSION['d_topic']);
+								}
 						}
 					}
 				}

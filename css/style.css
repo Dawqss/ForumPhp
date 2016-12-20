@@ -170,6 +170,8 @@ footer {
     #topSection form p {
       text-align: center;
       font-family: Mono space; }
+    #topSection form p:last-of-type input {
+      cursor: pointer; }
     #topSection form input, #topSection form select, #topSection form textarea {
       font-size: 2rem;
       border-radius: 15px;
@@ -181,3 +183,35 @@ footer {
       height: 220px;
       resize: none;
       font-size: 1.5rem; }
+
+#category {
+  background: #16a085;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  min-height: calc(100vh - 135px); }
+  #category h2, #category h3 {
+    text-align: center; }
+  #category table {
+    margin: 20px auto;
+    color: white;
+    border-collapse: collapse; }
+    #category table tr th {
+      padding: 15px;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      background: #9b59b6;
+      border: 2px solid black; }
+    #category table tr td {
+      background: #1abc9c;
+      padding: 15px;
+      border: 2px solid black; }
+      #category table tr td a {
+        color: white;
+        text-decoration: none;
+        transition: 0.2s; }
+        #category table tr td a:hover {
+          color: black; }
+      #category table tr td h3 {
+        text-align: left; }

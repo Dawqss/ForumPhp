@@ -67,8 +67,11 @@
 										echo '<h3><a href="category.php?cat_id='.$row['cat_id'].'">'. $row['cat_name'].'</a></h3>'
 										.$row['cat_description'];
 									echo '</td>';
+									$rcatid = $row['cat_id'];
+									$rezultat2 = $polaczenie->query("SELECT * FROM topics WHERE topic_cat = '$rcatid' ORDER BY topic_id DESC LIMIT 0, 1");
+									$row2 = $rezultat2->fetch_assoc();
 									echo '<td>';
-										echo '<a href="topic.php?id=">Topic subject</a> at 10-10';
+										echo '<a href="topic.php?id='.$row2['topic_id'].'">'.$row2['topic_subject'].'</a> '.date('d-m', strtotime($row2['topic_date']));
 									echo '</td>';
 								echo '</tr>';				
 							}
