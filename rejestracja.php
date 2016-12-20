@@ -85,10 +85,9 @@
 				if($everythingOk){
 					if($polaczenie->query("INSERT INTO users VALUES (NULL, '$nick', '$pass_hash', '$email', '$born', 1, 'regular')")){
 						$_SESSION['done'] = true;
-						header('Location: index.php');
+						header('Location: zaloguj.php');
 					} else {
 						throw new Exception($polaczenie->error);
-						
 					}
 				}
 

@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Abril+Fatface|Space+Mono");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 #logbody, #regbody {
   margin: 0;
   display: flex;
+  overflow-x: hidden;
   flex-direction: column;
   justify-content: center;
-  height: 80vh;
   width: 100vw;
   text-align: center;
   background: #2ecc71; }
@@ -70,3 +71,113 @@
 
 .error {
   color: red; }
+
+#index {
+  margin: 0;
+  font-family: 'Roboto'; }
+  #index header {
+    margin: 0;
+    padding: 0;
+    border-bottom: 3px solid #9b59b6; }
+    #index header nav {
+      height: 70px;
+      background: #1abc9c; }
+      #index header nav ul {
+        padding: 0;
+        margin: 0;
+        display: inline;
+        float: left;
+        line-height: 70px; }
+        #index header nav ul li {
+          margin: 0 10px;
+          display: inline-block; }
+          #index header nav ul li a {
+            text-decoration: none;
+            color: black;
+            transition: 0.2s; }
+            #index header nav ul li a:hover {
+              color: white; }
+          #index header nav ul li p {
+            padding: 0;
+            margin: 0; }
+      #index header nav ul:last-of-type {
+        float: right; }
+
+footer {
+  text-align: center; }
+  footer p {
+    border-top: 3px solid #9b59b6;
+    background: #1abc9c;
+    margin: 0;
+    padding: 20px; }
+
+#catSection {
+  min-height: calc(100vh - 135px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #16a085; }
+  #catSection form {
+    align-self: center;
+    font-size: 2rem; }
+    #catSection form p {
+      text-align: center;
+      font-family: Mono space; }
+    #catSection form input {
+      font-size: 2rem;
+      border-radius: 15px;
+      border: none;
+      font-family: Mono space;
+      padding: 5px; }
+    #catSection form input:last-of-type {
+      padding: 10px;
+      cursor: pointer; }
+
+#indexSection {
+  background: #16a085;
+  display: flex;
+  justify-content: center;
+  min-height: calc(100vh - 135px); }
+  #indexSection table {
+    color: white;
+    margin: 20px;
+    border-collapse: collapse; }
+    #indexSection table tr th {
+      padding: 15px;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      background: #9b59b6;
+      border: 2px solid black; }
+    #indexSection table tr td {
+      background: #1abc9c;
+      padding: 15px;
+      border: 2px solid black; }
+      #indexSection table tr td a {
+        color: white;
+        text-decoration: none;
+        transition: 0.2s; }
+        #indexSection table tr td a:hover {
+          color: black; }
+
+#topSection {
+  background: #16a085;
+  display: flex;
+  justify-content: center;
+  min-height: calc(100vh - 135px); }
+  #topSection form {
+    text-align: center;
+    font-size: 2rem; }
+    #topSection form p {
+      text-align: center;
+      font-family: Mono space; }
+    #topSection form input, #topSection form select, #topSection form textarea {
+      font-size: 2rem;
+      border-radius: 15px;
+      border: none;
+      font-family: Mono space;
+      padding: 5px; }
+    #topSection form textarea {
+      width: 500px;
+      height: 220px;
+      resize: none;
+      font-size: 1.5rem; }
