@@ -1,3 +1,7 @@
+tr, td
+	width: 75%
+
+
 #index
 	margin: 0
 	a,li,ul
@@ -62,11 +66,27 @@ footer
 #indexSection
 	background: #16a085
 	display: flex
+	flex-direction: column
 	justify-content: center
 	min-height: calc(100vh - 135px)
+	form
+		text-align: center
+		font-size: 2rem
+		textarea
+				width: 50%
+				height: 220px
+				resize: none
+				font-size: 1.5rem
+		input
+			font-size: 2rem
+			border-radius: 15px
+			border: none
+			padding: 10px
+			cursor: pointer		
 	table
+		width: 80%
 		color: white
-		margin: 20px
+		margin: 20px auto
 		border-collapse: collapse
 		tr
 			th
@@ -145,3 +165,6 @@ footer
 						color: black
 				h3
 					text-align: left
+
+.topic
+	width: 15%					

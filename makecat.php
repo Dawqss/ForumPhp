@@ -1,13 +1,16 @@
 <?php
 	session_start();
+
 	if(!isset($_SESSION['loged'])){
 		header('Location: zaloguj.php');
 		exit();
 	}
+
 	require_once "connect.php";
 	mysqli_report(MYSQLI_REPORT_STRICT);
 
 	if(isset($_POST['catname']) && isset($_POST['catdesc'])){
+
 		if($_SESSION['user_rank'] != 'admin'){
 			$_SESSION['e_cat'] = 'Aby stworzyć kategorię musisz mieć status administratora';
 		} else {
@@ -24,6 +27,7 @@
 					$rezultat = $polaczenie->query(sprintf("INSERT INTO categories VALUES(NULL, '%s', '%s')",
 						mysqli_real_escape_string($polaczenie, $catname),
 						mysqli_real_escape_string($polaczenie, $catdesc)));
+					
 					if(!$rezultat) {
 						throw new Exception($polaczenie->error);
 					} else {

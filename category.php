@@ -46,14 +46,17 @@
 					require_once "connect.php";
 					$polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
 					$polaczenie->set_charset("utf8");
+
 					if(!$polaczenie){
 						throw new Exception(mysqli_connect_errno());
 					} else {
 						$rezultat = $polaczenie->query("SELECT cat_id, cat_name, cat_description FROM categories WHERE cat_id = '$cat_id'");
+
 						if(!$rezultat){
 							throw new Exception($polaczenie->error);
 						} else {
 							$howMuchRows = $rezultat->num_rows;
+
 							if($howMuchRows == 0){
 								$_SESSION['no_cat'] = "Nie ma takiej kategori";
 							} else {
@@ -104,6 +107,7 @@
 					echo $_SESSION['no_cat'];
 					unset($_SESSION['no_cat']);
 				}
+				
 				if(isset($_SESSION['no_top'])){
 					echo '<h3>'.$_SESSION['no_top'].'</h3>';
 					unset($_SESSION['no_top']);

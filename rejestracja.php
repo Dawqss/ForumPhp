@@ -59,10 +59,12 @@
 
 		try {
 			$polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+
 			if($polaczenie->connect_errno != 0) {
 				throw new Exception(mysqli_connect_errno());
 			} else {
 				$rezultat = $polaczenie->query("SELECT user_email FROM users WHERE user_email = '$email'");
+
 				if(!$rezultat) throw new Exception($polaczenie->error);
 
 				$howMuchMails = $rezultat->num_rows;
@@ -73,6 +75,7 @@
 				}
 
 				$rezultat = $polaczenie->query("SELECT user_name FROM users WHERE user_name = '$nick'");
+
 				if(!$rezultat) throw new Exception($polaczenie->error);
 
 				$howMuchNicks = $rezultat->num_rows;
@@ -83,6 +86,7 @@
 				}
 
 				if($everythingOk){
+					
 					if($polaczenie->query("INSERT INTO users VALUES (NULL, '$nick', '$pass_hash', '$email', '$born', 1, 'regular')")){
 						$_SESSION['done'] = true;
 						header('Location: zaloguj.php');

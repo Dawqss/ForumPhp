@@ -1,14 +1,18 @@
 <?php
 	session_start();
+
 	if(!isset($_SESSION['loged'])){
 		header('Location: zaloguj.php');
 		exit();
 	}
 
 	if(isset($_POST['topic'])) {
+
 		if(strlen($_POST['topic']) < 3){
+
 			$_SESSION['e_topic'] = "Temat musi zawierać więcej niż 3 znaki";
 		} else {
+
 			if(strlen($_POST['post_content']) < 10){
 				$_SESSION['e_post'] = "Treść musi zawierać więcej niż 10 znaków";
 			} else {
@@ -21,6 +25,7 @@
 						throw new Exception(mysqli_connect_errno());
 					} else {
 						$rezultat = $polaczenie->query("BEGIN WORK;");
+
 						if(!$rezultat){
 							throw new Exception($polaczenie->error);
 						} else {
@@ -31,6 +36,7 @@
 							$topic = htmlentities($topic, ENT_QUOTES, "UTF-8");
 							$post_content = htmlentities($post_content, ENT_QUOTES, "UTF-8");
 							$rezultat = $polaczenie->query(sprintf("INSERT INTO topics VALUES(NULL, '%s', NOW(), '$topic_cat', '$user_id')", mysqli_real_escape_string($polaczenie, $topic)));
+
 							if(!$rezultat){
 								throw new Exception($polaczenie->error);
 								$rezultat = $polaczenie->query("ROLLBACK;");
@@ -38,6 +44,7 @@
 								$topicid = $polaczenie->insert_id;
 								$rezultat = $polaczenie->query(sprintf("INSERT INTO posts VALUES(NULL, '%s', NOW(), '$topicid', '$user_id')",
 									mysqli_real_escape_string($polaczenie, $post_content)));
+
 								if(!$rezultat){
 									throw new Exception($polaczenie->error);
 									$rezultat = $polaczenie->query("ROLLBACK;");
@@ -97,24 +104,29 @@
 			try{
 				$polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
 				$polaczenie->set_charset("utf8");
+
 				if(!$polaczenie){
 					throw new Exception(mysqli_connect_errno()); 
 				} else {
 					$rezultat = $polaczenie->query("SELECT cat_id, cat_name, cat_description FROM categories");
+
 					if(!$rezultat){
 						throw new Exception($polaczenie->error);
 					} else {
 						$howMuchRows = $rezultat->num_rows;
+
 						if($howMuchRows == 0){
 							echo 'Nie ma jeszcze żadnej kategori!';
 						} else {
 							echo '<form method = "Post">';
 							echo '<p>Temat:</p>';
 							echo '<p><input type = "text" name = "topic"></p>';
+
 								if(isset($_SESSION['e_topic'])){
 									echo '<p style="color: red; font-size: 15px;">'.$_SESSION['e_topic'].'</p>';
 									unset($_SESSION['e_topic']);
 								}
+
 							echo '<p>Kategoria:</p>';
 							echo '<select name = "topic_cat">';
 							while($row = $rezultat->fetch_assoc()){
@@ -123,11 +135,14 @@
 							echo '</select>';
 							echo '<p>Treść:</p>';
 							echo '<textarea name = "post_content"></textarea>';
+
 								if(isset($_SESSION['e_post'])){
 									echo '<p style="color: red; font-size: 15px;">'.$_SESSION['e_post'].'</p>';
 									unset($_SESSION['e_post']);
 								}
+
 							echo '<p><input type = "submit" value = "stwórz temat"></p>';
+
 								if(isset($_SESSION['d_topic'])){
 									echo '<p style="color: red; font-size: 15px;">'.$_SESSION['d_topic'].'</p>';
 									unset($_SESSION['d_topic']);
@@ -138,6 +153,7 @@
 			} catch (Exception $e){
 				$_SESSION['e'] = $e;
 			}
+			
 			if(isset($e)){
 				echo $e;
 				unset($e);

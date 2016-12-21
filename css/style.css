@@ -72,6 +72,9 @@
 .error {
   color: red; }
 
+tr, td {
+  width: 75%; }
+
 #index {
   margin: 0;
   font-family: 'Roboto'; }
@@ -136,11 +139,27 @@ footer {
 #indexSection {
   background: #16a085;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   min-height: calc(100vh - 135px); }
+  #indexSection form {
+    text-align: center;
+    font-size: 2rem; }
+    #indexSection form textarea {
+      width: 50%;
+      height: 220px;
+      resize: none;
+      font-size: 1.5rem; }
+    #indexSection form input {
+      font-size: 2rem;
+      border-radius: 15px;
+      border: none;
+      padding: 10px;
+      cursor: pointer; }
   #indexSection table {
+    width: 80%;
     color: white;
-    margin: 20px;
+    margin: 20px auto;
     border-collapse: collapse; }
     #indexSection table tr th {
       padding: 15px;
@@ -215,3 +234,6 @@ footer {
           color: black; }
       #category table tr td h3 {
         text-align: left; }
+
+.topic {
+  width: 15%; }

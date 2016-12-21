@@ -51,6 +51,7 @@
 					} else {
 						$rezultat = $polaczenie->query("SELECT cat_id, cat_name, cat_description FROM categories");
 						$howMuchRows = $rezultat->num_rows;
+						
 						if($howMuchRows = 0){
 							$_SESSION['no_cat'] = "Nie istnieją jeszcze żadne kategorie";
 								echo '<tr><td>'.$_SESSION['no_cat'].'</td></tr>';
